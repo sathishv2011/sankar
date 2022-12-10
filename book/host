@@ -1,0 +1,28 @@
+ terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+
+# Provider-Block
+provider "aws" {
+  region = "ap-south-1"
+  }
+# Create EC2 Instance
+
+resource "aws_instance" "web1" {
+  ami           = var.ami
+  instance_type = var.instancetype
+  availability zone = "ap-south-1a"
+
+  tags = {
+    Name = "HelloWorld"
+    tag1 ="test-1"
+    #tag2 ="test-2"
+  }
+}
+
+
